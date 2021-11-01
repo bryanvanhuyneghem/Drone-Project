@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<div class="jumbotron">
+    <h1>Drone planning tool</h1>
+    <p class="lead">
+        The Drone planner has an extensive, central database that can process and save all necessary data, such as 
+        drone flight data, pilot data, drone log data, XYZ-coordinates, TFW information, GCP and CTRL points, location data and images. 
+    </p>
+    <p>
+        Please start by creating a @Html.ActionLink("Project", "Create", "Projects"), a @Html.ActionLink("Drone", "Create", "Drones") and a @Html.ActionLink("Pilot", "Create", "Pilots"). These are needed before you can create a drone flight.
+    </p>
+    <p>
+        The web application also allows for drone flight visualisation in the @Html.ActionLink("Map", "ViewMap", "Map", new { id = 0 }, null) section.
+         For more information you can click the 'Learn more' button or go to the About tab.
+    </p>
+    <p>@Html.ActionLink("Learn more", "About", null, new { @class = "btn btn-primary btn-lg" })</p>
+</div>

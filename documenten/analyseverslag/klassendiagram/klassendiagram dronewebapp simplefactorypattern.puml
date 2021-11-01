@@ -1,0 +1,59 @@
+@startuml 
+Title Simple Factory Pattern: Parsers
+skinparam classAttributeIconSize 0
+
+'TODO' 
+'Map Parsers maken??'
+
+'KLASSEN'
+class CSVParser implements IParser {
+
+}
+
+class DATParser implements IParser {
+
+}
+
+interface IParser {
+    +Parse(path: string, flightId: int, db: DroneDBEntities): void
+}
+
+class PDFParser implements IParser {
+
+}
+
+class TFWParser implements IParser {
+
+}
+
+class TXTParser implements IParser {
+
+}
+
+class XYZParser implements IParser {
+
+}
+
+class RawImageParser implements IParser {
+
+}
+
+'de klant'
+class Creator {
+    +Creator(db: DbContext)
+    +GetParser(extensionType: string, path: string, flightId: int): void
+}
+
+class ParserFactory {
+    +MakeParser(parseType: string): IParser
+}
+
+'RELATIES'
+Creator .down.> ParserFactory: gebruikt
+ParserFactory .down.> IParser 
+
+'NOTAS'
+note left of Creator: Creator krijgt DbContext mee in constructor\n(dependancy injection); deze wordt gecast\nnaar een DroneDBEntities object.
+note left of IParser: Parse(...) leest een bestand in,\nverwerkt het en schrijft de data weg\nnaar de databank (DroneDBEntities).
+
+@enduml 

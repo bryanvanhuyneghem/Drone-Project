@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DroneWebApp.Models.Pilot>
+
+@{
+    ViewBag.Title = "Pilot Index";
+}
+
+<br />
+<h2 class="textAlignCenter">Pilots</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Pilots")">Pilots</a></li>
+        <li class="breadcrumb-item active" aria-current="page" />
+    </ol>
+</nav>
+
+@if (User.IsInRole("Admin"))
+{
+    <h4>@Html.ActionLink("Create new Pilot", "Create", "", new { @class = "btn-info btn-lg", style = "color:white; text-decoration:none;" })</h4>
+}
+
+<hr />
+
+<table id="ptable" class="ui celled table table-hover textAlignCenter" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Pilot")
+            </th>
+            <th>
+                @Html.DisplayName("Total Flights")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>Export Logbook</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PilotName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DroneFlights.Count) @Html.ActionLink("[View]", "DroneFlights", new { id = item.PilotId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.ActionLink("CSV", "Export", "Files", new { id = item.PilotId, extension = "csv", type = "pilot" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+                    @Html.ActionLink("PDF", "Export", "Files", new { id = item.PilotId, extension = "pdf", type = "pilot" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+                </td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.PilotId }, new { @class = "btn btn-success btn-sm" }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PilotId }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PilotId }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                }else
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.PilotId }, new { @class = "btn btn-success btn-sm" })
+                    </td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>

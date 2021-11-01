@@ -1,0 +1,98 @@
+Datum,Start,Einde,Plaats,Omschrijving,Issue #,Opmerkingen
+11/02/20,08:15,12:30,Contacturen,Uitlegsessie BP,,
+13/02/20,13:30,17:45,Contacturen,Gesprek met de klant,,
+18/02/20,08:15,12:30,Contacturen,Data analyseren en sprint 1 beschrijven,,Overleg groep - technologieen en haalbaarheid
+19/02/20,10:15,10:45,Extern,Data analyseren,,
+20/02/20,13:30,17:45,Contacturen,Stagebeurs,,
+23/02/20,14:30,18:00,Extern,Nieuwe data analyseren en issues opstellen,6/11-13/16-21/27/29,Oude data is niet meer relevant
+23/02/20,19:30,23:00,Extern,Leren werken met SQLServer in Visual Studio,,
+24/02/20,11:30,13:00,Extern,Leren werken met SQLServer en Visual Studio,29 en 32,Bekijken van mogelijke oplossing met ORM
+24/02/20,13:30,19:40,Extern,Databank model opstellen en leren werken met Entity Framework,11,Ook takenverdeling en issue-aanmaken
+24/02/20,20:00,20:30,Extern,Databank model opstellen en leren werken met Entity Framework,11,Ook takenverdeling en issue-aanmaken
+24/02/20,21:40,22:00,Extern,Taken toevoegen en nalezen betekenis puntenwolk,,
+25/02/20,08:15,10:25,Contacturen,Communicatielessen,,
+25/02/20,10:45,12:35,Contacturen,Overleg databank model en verdere aanmaak van model,,
+25/02/20,14:15,17:45,Extern,Uitwerking Design van databank model + testen in Entity Framework,11/32/36/38/40,
+26/02/20,13:15,17:20,Extern,Uitwerking Design van databank model + testen in Entity Framework + takenverdeling tussentijds verslag,18/32/41-43,Samen met Nathan op Parsec en Teamspeak
+27/02/20,11:45,13:15,Extern,Opstellen van groepsbespreking + xyz Parser,,
+27/02/20,13:15,17:45,Contacturen,Simple Factory pattern + testen MVC naar View schrijven + Parserklassen implementeren,6/13/45/48,met Nathan
+27/02/20,19:20,23:30,Extern,Oplossen van fout in Database model + afwerken Parserklassen + onderzoeken hoe ik files kan inlezen vanuit View,6/11/13/21/32/47-49,Mail naar JDN verzonden met vragen en voorstel DB Model
+28/02/20,11:25,11:45,Extern,Scrumboard opschonen + toevoegen van nieuwe issues 51 + 53,,
+29/02/20,13:15,23:55,Extern,Implementatie van interface website,39/48/50/51/53/61-63/65,
+01/03/20,12:15,19:30,Extern,Implementatie van sorting + searching en paging op data tables,59/67/68,
+01/03/20,19:45,23:00,Extern,Debugging,11,
+01/03/20,19:55,23:20,Extern,Integratie pdfParser en toevoegen laatste onderdeel (Drone datafile) aan databank model,,
+03/03/20,08:10,12:35,Contacturen,Debugging + groepsondersteuning + virtuele server opzetten + updaten van databank model,,
+03/03/20,13:20,16:00,Extern,Tussentijds verslag schrijven + analysedocument opstellen en schrijven,19/30/35/58,
+04/03/20,13:20,14:35,Extern,Tussentijds verslag + debugging + herorganiseren van folders op git,,
+05/03/20,12:00,12:30,Extern,Issues toevoegen + omschrijven en toekennen,,
+05/03/20,12:45,17:55,Extern,Debugging + aanpassen db model + toevoegen nieuwe webpagina's,58/71/72/73/74/75,
+05/03/20,19:05,23:40,Extern,Debugging + toevoegen nieuwe webpagina's,58/60/71/72/73/74/75,
+07/03/20,09:55,12:20,Contacturen,Debugging + error handling,69/78, Opendeurdag
+07/03/20,14:00,19:10,Extern,Debugging + error handling,69/78/79/80,
+08/03/20,09:40,13:20,Extern,Analyseverslag schrijven,30,
+08/03/20,13:40,16:40,Extern,Analyseverslag schrijven + pdf-parser debuggen met Philip,30/80,
+08/03/20,16:55,17:30,Extern,Analyseverslag,30,
+08/03/20,18:00,19:15,Extern,Aanpassing db model voor pdfparserklasse en analyseverslag,30/80,
+08/03/20,21:00,21:25,Extern,debugging,,
+10/03/20,08:05,12:30,Contacturen,analyseverslag + deployment diagram + readme.md + debugging,30/83,Finalisatie van Sprint 1
+10/03/20,12:30,15:00,Contacturen,debugging,83,Finalisatie van Sprint 1
+10/03/20,16:20,23:00,Extern,debugging + opmaak UI + finalisatie + nalezen analyseverslag,30/85/86,Finalisatie van Sprint 1
+11/03/20,09:30,15:00,Extern,debugging + opmaak UI + finalisatie,61/83,Finalisatie van Sprint 1
+17/03/20,08:15,13:00,Contacturen,Groepsbespreking: wat visualiseren? + Leren werken met ArcGIS js API + eerste world map gelukt met API,17/89,Begin Sprint 2
+19/03/20,13:30,17:45,Contacturen, Aanmaken van issues + Leren werken met ArcGIS js API + uitzoeken hoe EF6 klassen naar js,17/90/91/92,Ontbrekende velden toegevoegd aan DroneFlight + Terugknop naar List bij uploaden file
+19/03/20,18:45,20:30,Extern,Les communicatie,,
+23/03/20,11:00,12:15,Extern,Demo draaiboek + demo voorbereiden,,kleine bug uit Index van DroneFlights gehaald
+24/03/20,08:15,12:30,Extern,Demo voorbereiden en demo met JDN,,Demo met JDN
+26/03/20,13:30,17:45,Contacturen,WebAPI controllers,,
+29/03/20,15:30,20:00,Extern,Update database + GUI + cascading delete + flight hours drone,82/103/107/108/113/120/121,
+31/03/20,08:00,12:30,Contacturen,Pilots can now see their Flights + GUI clean-up + debugging + checking for duplicate files + return type change Parser classes,120/124,
+31/03/20,12:30,13:45,Contacturen,Pilots can now see their Flights + GUI clean-up + debugging + checking for duplicate files + return type change Parser classes,81/120/124, 
+02/04/20,13:30,18:10, Contacturen, Additional fields for DroneFlight + Automatic Field Fill for Project Code & Pilot Name + Cascading delete Project + Project CRUD + Project Views + Project's Drone Flights overview,122/128/130/131/132/133/135/137,Changes to data table JS file & SQL Server script
+07/04/20,09:30,12:30,Extern,Tussentijdse presentatie voorbereiden,,
+08/04/20,09:00,11:30,Extern,Tussentijdse presentatie inleiding en context inspreken,,
+08/04/20,18:25,19:55,Extern,Tussentijdse presentatie slot inspreken,,
+10/04/20,14:00,19:00,Extern,Progress bar debugging,84,Samen met Philip
+11/04/20,13:15,18:35,Extern,Debugging + Progress incrementation + updates aan Views,123/126/139/143/146,
+14/04/20,11:15,18:55,Extern,Debugging + progress bar bug + updates aan Controllers en Views,95/142/144,Update databank voor battery%
+14/04/20,19:15,20:55,Extern,Debugging van Ajax calls,149,Samen met Nathan
+19/04/20,11:15,15:00,Extern,Installatiehandleiding,,
+19/04/20,15:30,19:00,Extern,Unit tests,148,
+20/04/20,21:30,23:15,Extern,Finalisatie sprint 2,,
+21/04/20,08:15,12:30,Contacturen,Sprint 2 retrospective + vastleggen en verdelen issues + contacteren klant,129/141/148,Gesprek met prof. Ongenae over problemen Unit Tests & sneller parsen van data
+23/04/20,13:30,17:45,Contacturen,Debuggen van file uploader + ajax calls + FilesController + meerdere bestanden parsen,160/161,
+23/04/20,17:45,20:20,Extern,Debuggen van file uploader + ajax calls + FilesController + meerdere bestanden parsen,160/161,
+24/04/20,10:55,13:00,Extern,Sprint planning meeting met de klant voor sprint 3 + uittesten installatiehandleiding van andere groep,,
+24/04/20,08:00,12:30,Contacturen,Updates to ajax calls + reading multiple files + drone's drone flights + threshold value for drone flight time,160/161/166/167/173,Updated inconsistencies + debugging + fixed data tables + added RawImages button
+24/04/20,12:30,14:20,Extern,Update helper class + drone edit+create & drone flight delete logic now work together correctly to keep track of threshold time and change it if needed,160/161/166/167/173,The user is now shown a visual indicator of when a drone needs to be checked in Aalst
+30/04/20,13:20,17:45,Contacturen,TimeSpan bug fix + fixed crash bug on create & edit + fixed drone name bug after edit + css styling,140/157/175/178,
+30/04/20,17:45,20:05,Extern,re-design webpages + css styling,140,
+01/05/20,12:00,12:35,Extern,Debugging css & Location is now set to TBD instead of blank location is the user does not provide one during drone flight creation,140,
+01/05/20,12:55,15:35,Extern,Fixed css for images & hover upload and map + Complete overhaul of all cshtml pages,140/179,
+01/05/20,15:40,18:05,Extern,Breadcrumbing / Notes veld toegevoegd voor een Drone / Drone Flights hebben nu ook een starttijd / layout fixes / css fixes / alle styles uit html / debugging van cshtml pages / script update,140/179/180/181/182, 
+03/05/20,11:40,13:00,Extern,Drone Flights zonder datum crashten de Documents pagina's (qr; tfw; images etc.) voor drone flights,185, Debugging + cascading deletion by rawimages toegevoegd
+03/05/20,13:20,16:35,Extern,Gebruiker kan geen null files meer uploaden + webapp controleert extensies voor het uploaden + controle bij multiple upload in orde + css fix voor images die niet meer getoond werden + user can now manually tag a drone that needs a check-up (the threshold is correctly calculated on reset of this == checked),150/184/186/188, Debugging
+03/05/20,17:00,19:40,Extern,Oplossen van ajax communicatie bug (tonen van progress + juiste aantal files tijdens inlezen + op het einde),172,
+03/05/20,20:00,23:55,Extern,Oplossen van ajax communicatie bug (tonen van progress + juiste aantal files tijdens inlezen + op het einde) + progress bar voor alle files naar 100% in totaal + tonen van lijst met files die niet werden geparset,163/172/191,Databank script update + debugging ajax + error messages & rewrite FilesController
+04/05/20,12:30,14:45,Extern,Bug opgelost heruploaden + fixed css-klassen toevoegen/verwijderen via jquery + fixed output naar Client in fileUpload.js,192/193/195,
+04/05/20,15:00,16:30,Extern,Deployment diagram,197,
+05/05/20,08:15,12:45,Contacturen,Ondersteuning groepsleden + oplossen van enkele minor bugs + schrijven aan verslag (documentatie js-bestanden) ,201,
+07/05/20,13:25,17:45,Contacturen,installatiehandleiding,138,
+07/05/20,17:45,20:10,Extern,Limiet toegevoegd uploaden bestanden + documentatie js-scripts,201/206,
+08/05/20,17:00,17:40,Extern,Navigation issue,204,
+08/05/20,22:35,22:40,Extern,Gebruiker kan niet naar vlucht zijn map navigeren indien er geen drone log geupload is,168,
+09/05/20,16:45,18:45,Extern,Verslag (verbeteren en mergen van teksten Philip) + herschrijven van MVC deel (Model en Controllers) + update van indeling inhoud,138,
+09/05/20,20:05,20:25,Extern,Debugging inloggen + fix data tables,209,
+09/05/20,20:45,21:45,Extern,Debugging volledige webapplicatie,, Fout gevonden met berekening threshold en next check-up time
+09/05/20,20:45,22:25,Extern,Schrijven van hoofdstuk Future Work,138,
+09/05/20,22:35,22:55,Extern,Debugging webapp,,
+10/05/20,12:35,19:50,Extern,Verslag + Presentatie voorbereiden + Debugging webapp + debugging datcon + return false bij alle parsers + algemene code check,26/138/212,
+11/05/20,11:00,13:15,Extern,Bespreken DatCon met Nathan + werken aan ppt + verslag + nalezen tekst medestudenten,26/138,
+11/05/20,13:35,16:15,Extern,werken aan ppt + verslag + nalezen tekst medestudenten,138,
+12/05/20,08:00,11:30,Extern,Presentatie oefenen + presenteren + deelname aan de presentatiesessie andere groepen,,
+13/05/20,13:30,18:30,Extern,Verslag nalezen + gebruikershandleiding + besluit schrijven,138,
+13/05/20,18:30,19:15,Extern,referenties,138,
+13/05/20,19:55,21:20,Extern,Testen webapp + mergen naar master + testen op server,,
+13/05/20,21:30,23:55,Extern,Testen op server,,
+14/05/20,11:30,12;30,Extern,Oefenen presentatie en demo,,
+14/05/20,13:30,14;30,Extern,presentatie en demo met Jan De Nul,,

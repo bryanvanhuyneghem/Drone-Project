@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2347589f81304e39bc48e66030ba621c" Name="Diagram1">
+        <EntityTypeShape EntityType="DroneDBModel.AbsoluteGeolocationVariance" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.CTRLPoint" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DepartureInfo" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DestinationInfo" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.Drone" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneAttributeValue" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneFlight" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneGP" Width="1.5" PointX="7.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneIMU_ATTI" Width="1.5" PointX="7.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneLogEntry" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneMotor" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneOA" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneRC" Width="1.5" PointX="3" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.DroneRTKData" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.GCPError" Width="1.5" PointX="10.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.GroundControlPoint" Width="1.5" PointX="5.25" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.Pilot" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.PointCloudXYZ" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.QualityReport" Width="1.5" PointX="8.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.RawImage" Width="1.5" PointX="5.25" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.TFW" Width="1.5" PointX="5.25" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="DroneDBModel.Uncertainty" Width="1.5" PointX="6" PointY="41.875" IsExpanded="true" />
+        <AssociationConnector Association="DroneDBModel.FK_QualityReport_AbsoluteGeolocationVariance" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_CTRLPoints_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DepartureInfo_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DestinationInfo_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneFlight_Drone" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneAttributeValues_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneFlight_Pilot" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneLog_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_GroundControlPoints_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_PointCloudXYZ_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_QualityReport_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_RawImages_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_TFW_DroneFlight" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneGPS_DroneLogEntry" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneIMU_ATTI_DroneLogEntry" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneLogEntry_DroneMotor" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneLogEntry_DroneOA" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneLogEntry_DroneRC" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_DroneLogEntry_DroneRTKData" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_GCPError_QualityReport1" ManuallyRouted="false" />
+        <AssociationConnector Association="DroneDBModel.FK_QualityReport_Uncertainty" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

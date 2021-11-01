@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<br />
+<h2>@ViewBag.Title</h2>
+
+<h3>Project objectives</h3>
+<p>
+    (1)	The first and most crucial objective is to be able to map all available data and to group it logically.
+    Thereafter a model is made with SQL Server Management Studio and SQL Server 2019 that describes and defines
+    the relations between the several data groups. This model is easy to expand if necessary.
+</p>
+<p>
+    (2)	The database, described by the previous model, must contain data. Therefore, the second objective is to fill
+    the model with data and submit it to some tests. The data that is relevant to this project comes in different
+    file variants, like csv, pdf, tfw, xyz. It must also be easy to add the information of the created quality reports
+    of the drone flights in the database. Each pilot keeps a paper logbook for their drone flights at the moment, this
+    should be replaced by a simple interface that belongs to the database and holds this information.
+</p>
+<p>
+    This means that an application must be designed that can process all of these files automatically after uploading them.
+    The parsing of the data is done by parser classes that are described by a simple factory pattern.
+</p>
+<p>
+    The Entity Framework (EF) is used in combination with the programming language C#. The objects of the data tables are
+    made via Object Relational Mapping (ORM). All read in data is stored in these objects and afterwards saved in the
+    database.
+</p>
+<p>
+    (3)	The third objective describes how the data can be consulted and how it can be used. A web application is made that allows
+    to view the data, and if necessary, edit the data manually. This application shows all the drone flights, drones and
+    pilots that are present in the database. It is also possible to consult more detailed data by viewing the details of
+    these main categories. The aforementioned quality report and the drone logs are examples of this. The very specific data,
+    that is used for visualisation, is not shown on the web application and are only consultable directly via the database.
+    This is because this data comes in large quantities and is hard to read.
+</p>
+<p>
+    (4)	The fourth objective is to visualise the aforementioned large quantities of data with the ArcGIS API. These visualisations
+    can be accessed in the web viewer section of the web application and has an important subobjective: the web viewer must be
+    easy to navigate for laymen and allow them to intuitively share an image of a visualisation. Some examples of visualisations
+    are: showing the drone paths; showing the ground control points (GCP); visualising the battery usage of the drone; visualising
+    the height differences in the scanned area; etc. The ArcGIS library has a large offer of functionalities, which allows to add
+    extra visualisations at a later point to the web application.
+</p>
+<p>
+    (5)	The last objective is to make sure that the read in data can be exported to files of another file format.
+</p>
+
+<h3>Application usage</h3>
+<p>
+    Click here to donwload the user manual.
+</p>
+@Html.ActionLink("Manual", "Manual", "Home", new { @class = "btn btn-info btn-sm", style = "color: white" })

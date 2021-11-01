@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Export Logbook";
+}
+
+<p></p>
+<h2>Export Logbook</h2>
+
+@* Update *@
+
+<div id="successfullyAdded" class="alert alert-success" role="alert" hidden>
+    File <span id="fileName"></span> has been successfully added to your Flight.<br />
+    @Html.ActionLink("Back to Drone Flights List", "Index", "DroneFlights")
+</div>
+
+<div id="alreadyExists" class="alert alert-danger" role="alert" hidden>
+    File <span id="fileName"></span> already exists and has not been read.<br />
+    @Html.ActionLink("Back to Drone Flights List", "Index", "DroneFlights")
+</div>
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="btn-danger btn-sm" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Back to Drones List", "Index", "Drones", null, new { @class = "btn btn-primary btn-sm" })
+</p>

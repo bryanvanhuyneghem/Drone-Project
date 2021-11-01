@@ -1,0 +1,122 @@
+﻿@model IEnumerable<DroneWebApp.Models.RawImage>
+
+@{
+	ViewBag.Title = "Images";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="textAlignCenter">Images</h2>
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="@Url.Action("Index", "DroneFlights")">Drone Flights</a></li>
+		<li class="breadcrumb-item"><a href="@Url.Action("Details", "DroneFlights", new { id = ViewBag.DroneFlightId })">Details</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Images Drone Flight @ViewBag.droneFlight.FlightId</li>
+	</ol>
+</nav>
+
+@{
+	string str = "TBD";
+	if (@ViewBag.droneFlight.Date != null)
+	{
+		str = @ViewBag.droneFlight.Date.ToString("dd/MM/yyyy, HH:mm:ss");
+	}
+}
+<h4><strong>Drone Flight @ViewBag.droneFlight.FlightId (@ViewBag.droneFlight.Location, @str)</strong></h4>
+
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+	<a href='@Url.Action("Index", "Files", new { id = @ViewBag.droneFlight.FlightId })' class="anchor_icon">
+		<img src="~/Content/images/upload_icon.png" class="img-size" title="Upload files for this Drone Flight">
+		<img src="~/Content/images/upload_icon_hover.png" class="img-size" title="Upload files for this Drone Flight">
+	</a>
+	<br />
+}
+
+<div>
+	<hr />
+	@*spacing aanpassen hier*@
+	<table id="imgtable" class="ui celled table table-hover table-striped textAlignCenter" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayName("Metadata")
+				</th>
+				<th>
+					@Html.DisplayName("Image")
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						<table id="metadatatable">
+							<tr>
+								<th>Filename</th>
+								<td>@item.FileName</td>
+							</tr>
+							<tr>
+								<th>Create date</th>
+								<td>@item.CreateDate</td>
+							</tr>
+							<tr>
+								<th>GPS Altitude</th>
+								<td>@item.GpsAltitude</td>
+							</tr>
+							<tr>
+								<th>GPS Latitude</th>
+								<td>@item.GpsLatitude</td>
+							</tr>
+							<tr>
+								<th>GPS Longitude</th>
+								<td>@item.GpsLongitude</td>
+							</tr>
+							<tr>
+								<th>Exposure Time</th>
+								<td>@item.ExposureTime</td>
+							</tr>
+							<tr>
+								<th>Shutter Speed Value</th>
+								<td>@item.ShutterSpeedValue</td>
+							</tr>
+
+							<tr>
+								<th>Aperture Value</th>
+								<td>@item.ApertureValue</td>
+							</tr>
+							<tr>
+								<th>Max Aperture Value</th>
+								<td>@item.MaxApertureValue</td>
+							</tr>
+
+							<tr>
+								<th>Pitch </th>
+								<td>@item.Pitch</td>
+							</tr>
+							<tr>
+								<th>Yaw</th>
+								<td>@item.Yaw</td>
+							</tr>
+							<tr>
+								<th>Roll</th>
+								<td>@item.Roll</td>
+							</tr>
+
+						</table>
+					</td>
+					<td>
+						@{string src = "/WebAPI/api/RawImages/" + item.FlightId + "/" + item.RawImageKey + "/";}
+						<img src="@src" width="684" height="456" />
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+<p>
+	@Html.ActionLink("Back to Flight Details", "Details", new { id = ViewBag.DroneFlightId }, new { @class = "btn btn-primary btn-sm" }) |
+	@Html.ActionLink("Back to Drone Flights List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+</p>

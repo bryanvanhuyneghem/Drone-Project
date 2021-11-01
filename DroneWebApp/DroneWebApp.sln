@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneWebApp", "DroneWebApp\DroneWebApp.csproj", "{91534BB0-B70B-4B0B-8633-7F70EF817E9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{15B47FA4-6673-4864-81A1-E97427ACB316}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91534BB0-B70B-4B0B-8633-7F70EF817E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91534BB0-B70B-4B0B-8633-7F70EF817E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91534BB0-B70B-4B0B-8633-7F70EF817E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91534BB0-B70B-4B0B-8633-7F70EF817E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B47FA4-6673-4864-81A1-E97427ACB316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B47FA4-6673-4864-81A1-E97427ACB316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B47FA4-6673-4864-81A1-E97427ACB316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B47FA4-6673-4864-81A1-E97427ACB316}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED530452-0ABD-4CB4-8D8A-3E04B8D73229}
+	EndGlobalSection
+EndGlobal

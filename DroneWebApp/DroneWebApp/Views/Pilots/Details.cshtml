@@ -1,0 +1,143 @@
+﻿@model DroneWebApp.Models.Pilot
+
+@{
+    ViewBag.Title = "Pilot Details";
+}
+
+<br />
+<h2 class="textAlignCenter">Pilot Details</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Pilots")">Pilots</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details @Model.PilotName</li>
+    </ol>
+</nav>
+
+<div>
+    <h4><strong>@Model.PilotName</strong></h4>
+    <div>
+        Export options:
+        @Html.ActionLink("CSV", "Export", "Files", new { id = @Model.PilotId, extension = "csv", type = "pilot" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+        @Html.ActionLink("PDF", "Export", "Files", new { id = @Model.PilotId, extension = "pdf", type = "pilot" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+    </div>
+    <hr />
+    <p class="textAlignCenter">
+        <strong>Information</strong>
+    </p>
+    <table class="table table-bordered table-hover table-striped fixedTableLayout">
+        <tr>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.PilotName)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Total Flights")
+            </th>
+
+            <td>
+                @Model.DroneFlights.Count | @Html.ActionLink("View Flights", "DroneFlights", new { id = @Model.PilotId }, new { @class = "btn btn-primary btn-sm whiteText" })
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Street)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Street)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZIP)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.ZIP)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.City)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Country)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Phone)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("License No")
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.LicenseNo)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.Email)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Emergency Phone")
+            </th>
+
+            <td>
+                @Html.DisplayFor(model => model.EmergencyPhone)
+            </td>
+        </tr>
+    </table>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Edit Pilot", "Edit", new { id = Model.PilotId }, new { @class = "btn btn-warning btn-sm" }) |
+        @Html.ActionLink("Back to Pilots List", "Index", null, new { @class = "btn btn-primary btn-sm" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.PilotId }, new { @class = "btn btn-danger btn-sm" })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Back to Pilots List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+    </p>
+}
+

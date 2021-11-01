@@ -1,0 +1,39 @@
+﻿@{
+	Layout = "~/Views/Shared/_MapLayout.cshtml";
+	ViewBag.Title = "Map";
+}
+
+
+<!-- World map -->
+@if (@ViewBag.id != null)
+{
+	<div id="droneFlightMap" data-id="@ViewBag.id"></div>
+}
+else
+{
+	<div id="droneFlightMap"></div>
+}
+
+@section scripts{
+
+
+	@if (@ViewBag.id != null)
+	{
+		<script type="text/javascript" src="~/Scripts/visualisation/world_map.js"></script>
+	}
+	else
+	{
+		<script type="text/javascript" src="~/Scripts/visualisation/world_map_overview.js"></script>
+	}
+
+
+	@* Magnific Popup *@
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+
+	<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+
+
+}
+
+

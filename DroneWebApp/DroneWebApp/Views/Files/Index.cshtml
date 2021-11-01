@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "File Upload";
+}
+
+<br />
+<h2 class="textAlignCenter">File Upload</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "DroneFlights")">Drone Flights</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Upload files for Drone Flight @ViewBag.FlightId</li>
+    </ol>
+</nav>
+
+@* Start message *@
+<div id="initialMessage">
+    <h4>Please select the files you would like to add to <strong>Flight @ViewBag.FlightId</strong> (<strong>@ViewBag.Location</strong>, <strong>@ViewBag.Date</strong>).</h4>
+</div>
+<br />
+
+@* Errors *@
+<div id="errorField" class="alert alert-warning" hidden>
+    <strong>Flight @ViewBag.FlightId</strong> (<strong>@ViewBag.Location</strong>, <strong>@ViewBag.Date</strong>)<br />
+    <span id="errorMessage"></span>
+</div>
+
+@* Progress *@
+<div id="progressField" class="alert alert-info" hidden>
+    Adding files to <strong>Flight @ViewBag.FlightId</strong> (<strong>@ViewBag.Location</strong>, <strong>@ViewBag.Date</strong>)<br />
+    <strong><span class="amountParsed"></span></strong> out of <strong><span class="totalParsed"></span></strong> files. Please wait...
+</div>
+
+@* End *@
+<div id="endField" class="alert alert-success" role="alert" hidden>
+    The parser finished and read <strong><span class="amountParsed"></span></strong> out of <strong><span class="totalParsed"></span></strong> files.
+    <br />
+    <div id="successField" hidden>
+        All of your files have been <strong>added</strong> to this Drone Flight in the database.
+    </div>
+    <div id="failedField" hidden>
+        <div id="oneFile" hidden>
+            The following <strong><span class="totalFailed"></span></strong> file was not parsed, because it either <strong>already exists</strong> in the database or was not read correctly:
+        </div>
+        <div id="multipleFiles" hidden>
+            The following <strong><span class="totalFailed"></span></strong> files were not parsed, because they either <strong>already exist</strong> in the database or were not read correctly:
+        </div>
+        <div id="failedFilesList">
+        </div>
+    </div>
+    <div id="showNavigation">
+        <br />
+        @Html.ActionLink("Back to Drone Flight Details", "Details", "DroneFlights", new { id = @ViewBag.FlightId }, new { @class = "btn btn-primary btn-sm" }) |
+        @Html.ActionLink("Back to Drone Flights List", "Index", "DroneFlights", null, new { @class = "btn btn-primary btn-sm" })
+    </div>
+</div>
+
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="btn-danger btn-sm" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<div id="moreUpload" hidden>
+    Would you like to upload more files?
+</div>
+
+<div class="card paddingErrorIndex">
+    <form class="form-inline" method="post" enctype="multipart/form-data" id="Myform">
+        <div class="form-group">
+            <label for="InputFile">File:</label>
+            <input type="file" class="form-control mx-sm-3" id="file" name="files" accept=".pdf, .dat, .txt, .csv, .xyz, .tfw, .jpg" multiple>
+        </div>
+        <div id="uploadbtn" class="form-group">
+            <input id="uploadbtnSubmit" type="submit" value="Upload" class="btn btn-success mx-sm-3">
+        </div>
+    </form>
+</div>
+
+<div id="maximum" class="alert alert-warning">
+    <div id="maxUploadTextFiles">
+        Maximum: 2.1 GB per upload.
+    </div>
+    <div id="maxUploadTextImages">
+        Maximum: 500MB in images per upload.
+    </div>
+</div>
+
+
+<div id="uploadstatus"></div>
+<div id="progressbar"></div>
+
+
+@Html.ActionLink("Help! I don't know which files I can or should upload.", "Help", "Files", new { id = @ViewBag.FlightId }, new { @class = "btn btn-link" })
+<br />
+<br />
+<p>
+    @Html.ActionLink("Back to Drone Flight Details", "Details", "DroneFlights", new { id = @ViewBag.FlightId }, new { @class = "btn btn-primary btn-sm" }) |
+    @Html.ActionLink("Back to Drone Flights List", "Index", "DroneFlights", null, new { @class = "btn btn-primary btn-sm" })
+</p>

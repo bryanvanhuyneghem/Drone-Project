@@ -1,0 +1,167 @@
+﻿@model DroneWebApp.Models.Drone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<h2 class="textAlignCenter">Drone Details</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Drones")">Drones</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details @Model.DroneName</li>
+    </ol>
+</nav>
+
+<div>
+    <h4><strong>@Model.DroneName</strong></h4>
+    <div>
+        Export options:
+        @Html.ActionLink("CSV", "Export", "Files", new { id = @Model.DroneId, extension = "csv", type = "drone" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+        @Html.ActionLink("PDF", "Export", "Files", new { id = @Model.DroneId, extension = "pdf", type = "drone" }, new { @class = "btn btn-info btn-sm", style = "color: white" })
+    </div>
+    <hr />
+    <p class="textAlignCenter">
+        <strong>Information</strong>
+    </p>
+    <table class="table table-bordered table-hover table-striped fixedTableLayout textAlignTD">
+        <tr>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DroneName)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Total Flights")
+            </th>
+            <td>
+                @Model.DroneFlights.Count | @Html.ActionLink("View Flights", "DroneFlights", new { id = @Model.DroneId }, new { @class = "btn btn-primary btn-sm", style = "color: white" })
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Total Time Flown")
+            </th>
+            <td>
+                @{
+                    // Convert the drone's total seconds to a TimeSpan object
+                    TimeSpan totalFlightTime = TimeSpan.FromSeconds((long)@Model.TotalFlightTime);
+                    string hours = (totalFlightTime.Days * 24 + totalFlightTime.Hours).ToString();
+                    if (totalFlightTime.Days * 24 + totalFlightTime.Hours < 10)
+                    {
+                        hours = "0" + hours;
+                    }
+                    string minutes = totalFlightTime.Minutes.ToString();
+                    if (totalFlightTime.Minutes < 10)
+                    {
+                        minutes = "0" + minutes;
+                    }
+                    string seconds = totalFlightTime.Seconds.ToString();
+                    if (totalFlightTime.Seconds < 10)
+                    {
+                        seconds = "0" + seconds;
+                    }
+                }
+                @if (@Model.needsCheckUp)
+                {
+                    <div class="btn btn-danger btn-sm whiteText no-hover">
+                        @(hours)h @(minutes)m @(seconds)s
+                    </div>
+                }
+                else
+                {
+                    <div class="btn btn-success btn-sm whiteText no-hover">
+                        @(hours)h @(minutes)m @(seconds)s
+                    </div>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Registration)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.Registration)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DroneType)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DroneType)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Needs check up?")
+            </th>
+            <td>
+                @if (@Model.needsCheckUp)
+                {
+                    <div>Yes.</div>
+                }
+                else
+                {
+                    // Convert the drone's ticks to a TimeSpan object
+                    TimeSpan nextTimeCheck = TimeSpan.FromSeconds((long)@Model.nextTimeCheck);
+                    string hrs = (nextTimeCheck.Days * 24 + nextTimeCheck.Hours).ToString();
+                    if (nextTimeCheck.Days * 24 + nextTimeCheck.Hours < 10)
+                    {
+                        hrs = "0" + hrs;
+                    }
+                    string mins = nextTimeCheck.Minutes.ToString();
+                    if (nextTimeCheck.Minutes < 10)
+                    {
+                        mins = "0" + mins;
+                    }
+                    string secs = nextTimeCheck.Seconds.ToString();
+                    if (nextTimeCheck.Seconds < 10)
+                    {
+                        secs = "0" + secs;
+                    }
+                    @Html.Label("No; next check-up at:")
+                    <div class="btn btn-info btn-sm whiteText no-hover">
+                        @(hrs)h @(mins)m @(secs)s
+                    </div>
+                }
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <td>
+                @Html.TextAreaFor(model => model.Notes, new { @class = "notesSize-pointer", @readonly = "readonly" })
+                <div>
+                    To edit this field, please navigate to Edit Drone.
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Edit Drone", "Edit", new { id = Model.DroneId }, new { @class = "btn btn-warning btn-sm" }) |
+        @Html.ActionLink("Back to Drones List", "Index", null, new { @class = "btn btn-primary btn-sm" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.DroneId }, new { @class = "btn btn-danger btn-sm" })
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Back to Drones List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+    </p>
+}
+

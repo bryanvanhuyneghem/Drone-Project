@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="textAlignCenter">Upload help page</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "DroneFlights")">Drone Flights</a></li>
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Files", new { id = @ViewBag.FlightId })">Upload</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Help</li>
+    </ol>
+</nav>
+
+@{ 
+    string role = "a user";
+}
+@if (User.IsInRole("Admin"))
+{
+    role = "an admin";
+}
+
+<h3>Which files should I upload?</h3>
+<p>
+    As @role, you can upload the following files to a drone flight:
+    <ul>
+        <li>a Quality Report (.pdf)</li>
+        <li>an XYZ file (.xyz)</li>
+        <li>a TFW file (.tfw)</li>
+        <li>a CSV file containing GCPs and/or CTRLs (.csv)</li>
+        <li>a drone log file (.dat or converted .csv)</li>
+        <li>images (.jpg)</li>
+    </ul>
+</p>
+
+@Html.ActionLink("Back to Drone Flight Upload", "Index", "Files", new { id = @ViewBag.FlightId }, new { @class = "btn btn-primary btn-sm" })
+
+
+

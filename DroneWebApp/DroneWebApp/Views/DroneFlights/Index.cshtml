@@ -1,0 +1,195 @@
+﻿@model IEnumerable<DroneWebApp.Models.DroneFlight>
+
+@{
+    ViewBag.Title = "Drone Flight Index";
+}
+
+<br />
+<h2 class="textAlignCenter">Drone Flights</h2>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="@Url.Action("Index", "DroneFlights")">Drone Flights</a></li>
+        <li class="breadcrumb-item active" aria-current="page" />
+    </ol>
+</nav>
+
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+    <h4>@Html.ActionLink("Create new Flight", "Create", "", new { @class = "btn-info btn-lg whiteText" })</h4>
+}
+
+@* Check for privileges *@
+@{
+    string table_id = "dftable_view";
+}
+@if (User.IsInRole("Admin") || User.IsInRole("User"))
+{
+    table_id = "dftable";
+}
+
+<hr />
+
+<table id="@table_id" class="ui celled table table-hover table-striped textAlignCenter" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Project")
+            </th>
+            <th>
+                @Html.DisplayName("Location")
+            </th>
+            <th>
+                @Html.DisplayName("Date")
+            </th>
+            <th>
+                @Html.DisplayName("Drone")
+            </th>
+            <th>
+                @Html.DisplayName("Pilot")
+            </th>
+            <th>Map</th>
+            <th>Files</th>
+            @if (User.IsInRole("Admin") || User.IsInRole("User"))
+            {
+                <th>Upload</th>
+            }
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project.ProjectCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @{
+                        string str = "TBD";
+                        if (@item.Date != null)
+                        {
+                            str = ((DateTime)@item.Date).ToString("dd/MM/yyyy");
+                        }
+                    }
+                    @str
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Drone.DroneName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pilot.PilotName)
+                </td>
+                <td>
+                    <a href='@Url.Action("ViewMap", "Map", new { id = item.FlightId })' class="anchor_icon">
+                        <img src="~/Content/images/map_marker.png" class="img-size" title="Navigate to Map for this Drone Flight">
+                        <img src="~/Content/images/map_marker_hover.png" class="img-size" title="Navigate to Map for this Drone Flight">
+                    </a>
+                </td>
+                <td>
+                    @if (!item.hasQR)
+                    {
+                        @Html.ActionLink("QR", "QualityReport", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm whiteText" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("QR", "QualityReport", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm whiteText" })
+                    }
+                    @if (!item.hasGCPs)
+                    {
+                        @Html.ActionLink("GCP", "GCPPoints", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm whiteText" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("GCP", "GCPPoints", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm whiteText" })
+                    }
+                    @if (!item.hasCTRLs)
+                    {
+                        @Html.ActionLink("CTRL", "CTRLPoints", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm whiteText" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("CTRL", "CTRLPoints", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm whiteText" })
+                    }
+                    @if (!item.hasTFW)
+                    {
+                        @Html.ActionLink("TFW", "TFW", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm whiteText" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("TFW", "TFW", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm whiteText" })
+                    }
+                    <br />
+                    <p></p>
+                    @if (!item.hasRawImages)
+                    {
+                        @Html.ActionLink("Images", "RawImages", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm", style = "color: white" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Images", "RawImages", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm", style = "color: white" })
+                    }
+                    @if (!item.hasXYZ)
+                    {
+                        <div class="btn btn-danger btn-sm no-hover">
+                            <span>
+                                XYZ
+                            </span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="btn btn-success btn-sm no-hover">
+                            <span>
+                                XYZ
+                            </span>
+                        </div>
+                    }
+                    @if (!item.hasDroneLog)
+                    {
+                        <div class="btn btn-danger btn-sm no-hover">
+                            <span>
+                                Drone Log
+                            </span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="btn btn-success btn-sm no-hover">
+                            <span>
+                                Drone Log
+                            </span>
+                        </div>
+                    }
+                </td>
+                @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                {
+                    <td>
+                        <a href='@Url.Action("Index", "Files", new { id = item.FlightId })' class="anchor_icon">
+                            <img src="~/Content/images/upload_icon.png" class="img-size" title="Upload files for this Drone Flight">
+                            <img src="~/Content/images/upload_icon_hover.png" class="img-size" title="Upload files for this Drone Flight">
+                        </a>
+                    </td>
+                }
+                @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm" }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FlightId }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FlightId }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.FlightId }, new { @class = "btn btn-success btn-sm" })
+                    </td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>

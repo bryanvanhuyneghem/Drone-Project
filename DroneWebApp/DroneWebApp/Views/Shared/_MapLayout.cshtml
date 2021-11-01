@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html class="map-layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>@ViewBag.Title - Drone Planner</title>
+
+    @* jQuery *@
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    @* ArcGIS css & js api *@
+    <link rel="stylesheet" href="https://js.arcgis.com/4.14/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.14/"></script>
+
+    @* Bootstrap css *@
+    @Styles.Render("~/Content/css")
+
+    @* modernizr *@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Drone Planner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Map", "ViewMap", "Map", new { id = "" }, null)</li>
+                    <li>@Html.ActionLink("Projects", "Index", "Projects")</li>
+                    <li>@Html.ActionLink("Drone Flights", "Index", "DroneFlights")</li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                    {
+                        <li>@Html.ActionLink("Drones", "Index", "Drones")</li>
+                        <li>@Html.ActionLink("Pilots", "Index", "Pilots")</li>
+                    }
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <!--Content-->
+    @RenderBody()
+</body>
+
+
+@Scripts.Render("~/bundles/jquery")
+@RenderSection("scripts", required: false)
+
+</html>

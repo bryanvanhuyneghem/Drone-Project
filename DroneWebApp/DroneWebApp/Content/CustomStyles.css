@@ -1,0 +1,260 @@
+﻿html.map-layout, .map-layout body, #droneFlightMap {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* formerly site.css - START */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/* formerly site.css - END */
+
+/* we don't like extra padding at the bottom for this page, as it only contains a map. no space
+    between the end of the map and the end of the browser should be visible.
+*/
+.map-layout body { padding-bottom:0px; padding-top:50px; }
+
+.redBrightText {
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
+}
+.deletionText {
+    color: red;
+    font-weight: bold;
+}
+
+.whiteText {
+    color: white;
+}
+
+.textAlignCenter {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.textAlignTD th {
+    vertical-align: middle !important;
+}
+
+.textAlignCenter td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.paddingErrorIndex {
+    padding: 20px;
+    width: auto;
+}
+
+.fixedTableLayout {
+    table-layout: fixed;
+}
+
+table#metadatatable {
+    text-align: left;
+    width: 100%;
+}
+
+table#metadatatable td, table#metadatatable th {
+    padding: 8px 5px;
+    border-bottom: 1px solid #ddd;
+    border-left-width: 0px !important;
+}
+
+table#metadatatable tr:last-of-type td, table#metadatatable tr:last-of-type th {
+    border-bottom-width: 0px;
+}
+
+/* Drone Flight Map image css*/
+
+#droneFlightMap img:last-child {
+    display: inline !important; /* rule to override the general rule above */
+}
+
+#droneFlightMap img {
+    width: 225px;
+    height: 150px;
+    display: block;
+    object-fit: contain;
+}
+
+/* css for image icons map and upload */
+
+.anchor_icon img:last-child {
+    display: none;
+}
+
+.anchor_icon:hover img:last-child {
+    display: inline-block;
+}
+
+.anchor_icon:hover img:first-child {
+    display: none;
+}
+
+.img-size {
+    width: 40px;
+    height: 40px;
+}
+
+.img-size-2 {
+    width: 50px;
+    height: 50px;
+}
+
+/* css for Notes in Drone Details */
+.notesSize {
+    width: 450px;
+    height: 400px;
+}
+
+.notesSize-pointer {
+    width: 450px;
+    height: 400px;
+    cursor: default
+}
+
+/*Show default cursor on hover over non-editable text in Drone Details */
+.no-hover {
+    cursor: default;
+}
+
+/*Custom label sizes */
+.label-xsmall {
+    vertical-align: super;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+.label-small {
+    vertical-align: middle;
+    font-size: small;
+    font-weight: normal;
+}
+
+.label-medium {
+    vertical-align: middle;
+    font-size: medium;
+    font-weight: normal;
+}
+
+.label-large {
+    vertical-align: super;
+    font-size: large;
+    font-weight: normal;
+}
+
+.label-bs {
+    vertical-align: super;
+    font-weight: normal;
+}
+
+
+/* Drone Flight Map View */
+
+/* Popup for Images should be just as wide as necessary */
+#droneFlightMap .esri-popup__main-container {
+    width: auto;
+}
+
+#droneFlightMap .esri-popup__footer {
+    display: none;
+}
+
+/* Main Map View - Popup for flight */
+.droneFlightPopup table th {
+    font-weight: bold;
+    padding-right: 0.5em;
+}
+.droneFlightPopup table td:first-of-type { padding-right:0.428em; }
+.droneFlightPopup table .titleRow td,
+.droneFlightPopup table .titleRow th {
+    padding-top: 0.7142857em;
+    padding-bottom:0.21428em;
+    /*padding-bottom: 0.25em;*/
+}
+.droneFlightPopup table .coordinatesRow {
+    font-size: 0.8em;
+    line-height:1.25em;
+}
+
+.droneFlightPopup a {
+    display: block;
+    margin: 0.857em 0px 0.14285em;
+    padding: 0.3em 1em;
+    text-align: center;
+    border:1px solid #999; background-color:#f0f0f0;
+    text-decoration:none;
+    color:#333;
+    border-radius:5px;
+}
+    .droneFlightPopup a:hover {
+        border-color: #000;
+        color: #000;
+        background-color: #ececec;
+    }
+
+/* drone flight map detail*/
+.esri-feature { padding:1em; }
+.esri-feature h4 { padding-top:0px; margin-top:0px; margin-bottom:1em; }
+
+/* drone flight map detail, color coding buttons*/
+button.colorCodingButton {
+    display: inline-block;
+    padding: 0.6em 1.5em;
+    border: 1px solid #999;
+    color: #333;
+    border-radius: 5px;
+    margin-left:0.6em;
+    text-align:center;
+    outline:none;
+}
+    button.colorCodingButton.active { border-color:#000; border-width:2px; color:#000; }
+    /*
+button.colorCodingButton:first-of-type { margin-top:0px; }
+     */
+    .esri-ui-bottom-left .esri-feature__size-container > * {
+        display: inline-block;
+    }
+.esri-ui-bottom-left h4 {
+    margin: 0px 7px;
+    line-height:2.785em;
+}
+.esri-ui-bottom-left .esri-feature {
+    padding: 0.8em;
+}
+
+/* interface fixes arcgis */
+.esri-layer-list__item-label { outline:none; display:pointer; }
+
+.esri-layer-list__item-container {
+    padding: 7px;
+}
+
+.esri-legend__service {
+    padding: 10px 10px 0px 10px;
+}

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Drone Planner</title>
+
+    <!-- Huisstijl van JDN?-->
+
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+</head>
+<body>
+    <!--Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Drone Planner", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Map", "ViewMap", "Map")</li>
+                    <li>@Html.ActionLink("Projects", "Index", "Projects")</li>
+                    <li>@Html.ActionLink("Drone Flights", "Index", "DroneFlights")</li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                    {
+                        <li>@Html.ActionLink("Drones", "Index", "Drones")</li>
+                        <li>@Html.ActionLink("Pilots", "Index", "Pilots")</li>
+                    }
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <!--Content-->
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Jan De Nul, Drone Flights Application</p>
+        </footer>
+    </div>
+
+    @* jQuery *@
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.2.2/dist/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    @* Magnific Popup *@
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>*@
+
+    @* Datatables *@
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+
+    @* Moment *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+    @RenderSection("scripts", required: false)
+
+    @* Bootstrap *@
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @* Custom *@
+    @Scripts.Render("~/bundles/custom")
+
+</body>
+</html>
